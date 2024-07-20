@@ -1,62 +1,45 @@
 public class Chain
 {
-    List<State> states = new List<State>();
+    public int currentStateIndex = 0;
 
-    public void addState(string word)
-    {
-        states.Add(new State(word));
-    }
+    string[] states = new string[0];
+    double[,] probabilities = new double[0, 0];
 
-    public void setNext(int currentIdx, int nextIdx, double prob)
+    public Chain(string[] words)
     {
-        states[currentIdx].addNext(states[nextIdx], prob);
-    }
-
-    public async void Start(int initialStateIdx)
-    {
-        State current = states[initialStateIdx];
-        while (current != State.nullReturn)
+        currentStateIndex = 0;
+        states = new string[words.Length];
+        probabilities = new double[words.Length, words.Length];
+        for (int i = 0; i < words.Length; i++)
         {
-            Console.Write(current.word + " ");
-            current = await current.goNext();
+            states[i] = new string(words[i]);
         }
     }
 
-    class State
+    public void setProbability(int startIdx, int endIdx, double prob)
     {
-        public string word;
-        public List<double> probs = new List<double>();
-        public List<State> nexts = new List<State>();
+        probabilities[startIdx, endIdx] = prob;
+    }
 
-        public static State nullReturn = new State("");
+    public string current()
+    {
+        return states[currentStateIndex];
+    }
 
-        public State(string word)
+    public string goNext()
+    {
+        var rand = new Random();
+        double r = rand.NextDouble();
+        for (int i = 0; i < probabilities.GetLength(1); i++)
         {
-            this.word = word;
-        }
-
-        public void addNext(State next, double prob)
-        {
-            probs.Add(prob);
-            nexts.Add(next);
-        }
-
-        public async Task<State> goNext()
-        {
-            var rand = new Random();
-            double r = rand.NextDouble();
-            await Task.Delay(100);
-
-            for (int i = 0; i < probs.Count; i++)
+            double p = probabilities[currentStateIndex, i];
+            if (r < p)
             {
-                double p = probs[i];
-                if (r < p)
-                {
-                    return nexts[i];
-                }
-                r -= p;
+                currentStateIndex = i;
+                return states[i];
             }
-            return nullReturn;
+            r -= p;
         }
+        return null;
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "24z5DPRDuFAzbIruYYDhI5Rnv4xlaKBO2ym7bDJ0fyenpRk5LaQeUpAlgaTJkOkXKJMUMlStyNnocBOasPZ6eg==",
+  "dgSpecHash": "StBHfCyuNgxPWcYLjp89PrbDleTptgG1wBPYjCgZf2Pu8VVYL1bCmnqTU8tls2P5VOaWengSNyWIJyOwUwl1vQ==",
   "success": true,
-  "projectFilePath": "D:\\dotNetProjects\\markov\\markov.csproj",
+  "projectFilePath": "D:\\dotNetProjects\\markovChain\\markov.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

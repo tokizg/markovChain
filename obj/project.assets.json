@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dotNetProjects\\markov\\markov.csproj",
+      "projectUniqueName": "D:\\dotNetProjects\\markovChain\\markov.csproj",
       "projectName": "markov",
-      "projectPath": "D:\\dotNetProjects\\markov\\markov.csproj",
+      "projectPath": "D:\\dotNetProjects\\markovChain\\markov.csproj",
       "packagesPath": "C:\\Users\\syouta\\.nuget\\packages\\",
-      "outputPath": "D:\\dotNetProjects\\markov\\obj\\",
+      "outputPath": "D:\\dotNetProjects\\markovChain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\syouta\\AppData\\Roaming\\NuGet\\NuGet.Config"
