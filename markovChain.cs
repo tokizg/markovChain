@@ -16,6 +16,24 @@ public class Chain
         }
     }
 
+    public Chain(string[] words, double[,] probs)
+    {
+        currentStateIndex = 0;
+        states = new string[words.Length];
+        probabilities = new double[words.Length, words.Length];
+        for (int i = 0; i < words.Length; i++)
+        {
+            states[i] = new string(words[i]);
+        }
+        for (int i = 0; i < probs.GetLength(0); i++)
+        {
+            for (int j = 0; j < probs.GetLength(1); j++)
+            {
+                probabilities[i, j] = probs[i, j];
+            }
+        }
+    }
+
     public void setProbability(int startIdx, int endIdx, double prob)
     {
         probabilities[startIdx, endIdx] = prob;
